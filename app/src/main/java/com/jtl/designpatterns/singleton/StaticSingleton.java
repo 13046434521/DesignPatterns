@@ -1,14 +1,16 @@
 package com.jtl.designpatterns.singleton;
 
+import android.view.LayoutInflater;
+
 /**
  * 作者:jtl
  * 日期:Created in 2019/1/25 16:14
  * 描述:静态内部类单例模式
- * 更改:
+ * 优点:1.保证了线程安全问题,也能保证单例的唯一性（推荐）
+ * 缺点:
  */
 
 public class StaticSingleton {
-
     private StaticSingleton(){}
 
     private static StaticSingleton getInstance(){
