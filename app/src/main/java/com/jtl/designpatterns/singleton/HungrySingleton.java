@@ -11,9 +11,10 @@ package com.jtl.designpatterns.singleton;
 public class HungrySingleton {
     private static HungrySingleton sSingleton = new HungrySingleton();
 
-    private HungrySingleton(){}
+    private HungrySingleton() {
+    }
 
-    public static HungrySingleton getInstance(){
+    public static HungrySingleton getInstance() {
         return sSingleton;
     }
 }

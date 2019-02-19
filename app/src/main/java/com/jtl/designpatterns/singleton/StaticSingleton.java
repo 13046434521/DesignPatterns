@@ -1,7 +1,5 @@
 package com.jtl.designpatterns.singleton;
 
-import android.view.LayoutInflater;
-
 /**
  * 作者:jtl
  * 日期:Created in 2019/1/25 16:14
@@ -11,13 +9,14 @@ import android.view.LayoutInflater;
  */
 
 public class StaticSingleton {
-    private StaticSingleton(){}
+    private StaticSingleton() {
+    }
 
-    private static StaticSingleton getInstance(){
+    private static StaticSingleton getInstance() {
         return StaticSingletonHolder.sSingleton;
     }
 
-    private static class StaticSingletonHolder{
-        private static final StaticSingleton sSingleton=new StaticSingleton();
+    private static class StaticSingletonHolder {
+        private static final StaticSingleton sSingleton = new StaticSingleton();
     }
 }
