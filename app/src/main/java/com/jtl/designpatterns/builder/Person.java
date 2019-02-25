@@ -80,6 +80,13 @@ public class Person {
         Builder(Person person) {
             this.name = person.name;
             this.age = person.age;
+            this.height = person.height;
+            this.weight = person.weight;
+            this.sex = person.sex;
+            this.address = person.address;
+            this.nation = person.nation;
+            this.grade = person.grade;
+            this.clazz = person.clazz;
         }
 
         public Builder setAge(int age) {
