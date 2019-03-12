@@ -5,20 +5,25 @@ import java.util.Observer;
 
 /**
  * 作者:jtl
- * 日期:Created in 2019/2/22 16:27
- * 描述:程序员（观察者）
+ * 日期:Created in 2019/2/25 11:02
+ * 描述:
  * 更改:
  */
 
-public abstract class Programer implements Observer{
+public class Reception implements Observer {
     private String name;
     protected String position;
 
-    public Programer(String name) {
+    public Reception(String name) {
         this.name = name;
     }
 
-    public abstract void setPosition();
+    /**
+     * 职位
+     */
+    public void setPosition() {
+        this.position = "前台";
+    }
 
     @Override
     public void update(Observable o, Object arg) {

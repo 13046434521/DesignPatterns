@@ -2,10 +2,21 @@ package com.jtl.designpatterns;
 
 import com.jtl.designpatterns.observer.novel.Author;
 import com.jtl.designpatterns.observer.novel.Reader;
+import com.jtl.designpatterns.observer.offer.AndroidProgramer;
 import com.jtl.designpatterns.observer.offer.HeadHunt;
+import com.jtl.designpatterns.observer.offer.JniProgramer;
 import com.jtl.designpatterns.observer.offer.Programer;
+import com.jtl.designpatterns.observer.offer.Reception;
 
 import org.junit.Test;
+
+import java.lang.annotation.Documented;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+import static java.lang.annotation.ElementType.FIELD;
+import static java.lang.annotation.ElementType.METHOD;
 
 /**
  * 作者:jtl
@@ -27,21 +38,26 @@ public class ObserverTest {
         author.addObserver(xie);
         author.addObserver(dong);
         author.addObserver(liu);
-        author.upDateNovel("您喜欢的小说，仙逆更新最新章节了");
-
+        author.upDateNovel("您喜欢的作者耳根的最新小说，仙逆更新最新章节了");
 
         System.out.println("\n----------------小刘由于不想再看小说就取消了订阅----------------------\n");
+
         author.deleteObserver(liu);
-        author.upDateNovel("您喜欢的小说，求魔更新最新章节了");
+        author.upDateNovel("您喜欢的作者耳根的最新小说，仙逆更新最新章节了");
     }
 
     @Test
     public void upDatePosition(){
-        Programer jia=new Programer("小贾","Android");
-        Programer liu=new Programer("小刘","Android");
-        Programer ling=new Programer("老凌","JNI");
-        Programer liang=new Programer("小梁","JNI");
-        Programer luo=new Programer("小罗","前台");
+        Programer jia=new AndroidProgramer("小贾");
+        jia.setPosition();
+        Programer liu=new AndroidProgramer("小刘");
+        liu.setPosition();
+        Programer ling=new JniProgramer("老凌");
+        ling.setPosition();
+        Programer liang=new JniProgramer("小梁");
+        liang.setPosition();
+        Reception luo=new Reception("小罗");
+        luo.setPosition();
 
         HeadHunt headHunt=new HeadHunt();
         headHunt.addObserver(jia);
@@ -49,10 +65,19 @@ public class ObserverTest {
         headHunt.addObserver(ling);
         headHunt.addObserver(liang);
         headHunt.addObserver(luo);
-        headHunt.releaseJob("目前xxx公司有新的Android程序员职位，请您前去面试！");
+        headHunt.releaseJob("目前xxx公司有新的Android工程师职位，请您前去面试！");
 
-        System.out.println("\n----------------小罗由于不是程序员就取消了订阅----------------------\n");
+        System.out.println("\n----------------小罗由于不是Android工程师就取消了订阅----------------------\n");
+
         headHunt.deleteObserver(luo);
-        headHunt.releaseJob("目前xxx公司有新的Android程序员职位，请您前去面试！");
+        headHunt.releaseJob("目前xxx公司有新的Android工程师职位，请您前去面试！");
+    }
+
+    @Documented
+    @Retention(RetentionPolicy.RUNTIME)
+    @Target(value={METHOD, FIELD})
+    public @interface UseCase {
+        public int id();
+        public String description() default "default value";
     }
 }

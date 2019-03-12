@@ -17,7 +17,6 @@ public class HeadHunt extends Observable{
      * @param content
      */
     public void releaseJob(String content){
-
         setChanged();
         notifyObservers(content);
     }

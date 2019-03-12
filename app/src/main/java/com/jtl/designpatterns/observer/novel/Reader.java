@@ -1,7 +1,5 @@
 package com.jtl.designpatterns.observer.novel;
 
-import com.socks.library.KLog;
-
 import java.util.Observable;
 import java.util.Observer;
 
