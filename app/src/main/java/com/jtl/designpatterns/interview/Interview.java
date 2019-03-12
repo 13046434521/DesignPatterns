@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 /**
  * 作者:jtl
  * 日期:Created in 2019/2/27 10:54
- * 描述:
+ * 描述:InterviewBean类
  * 更改:
  */
 

@@ -13,7 +13,7 @@ package com.jtl.designpatterns.singleton;
  */
 
 public class DclSingleton {
-    private static DclSingleton mSingleton = null;
+    private static volatile DclSingleton mSingleton = null;
 
     private DclSingleton() {
     }
