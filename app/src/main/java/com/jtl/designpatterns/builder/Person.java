@@ -54,6 +54,21 @@ public class Person {
         return new Builder(this);
     }
 
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", height='" + height + '\'' +
+                ", weight='" + weight + '\'' +
+                ", sex='" + sex + '\'' +
+                ", address='" + address + '\'' +
+                ", nation='" + nation + '\'' +
+                ", grade='" + grade + '\'' +
+                ", clazz='" + clazz + '\'' +
+                '}';
+    }
+
     public static class Builder {
         private String name;//姓名
         private int age;//年龄
@@ -71,8 +86,8 @@ public class Person {
             this.height="150cm";
             this.weight="45kg";
             this.sex="男";
-            this.address="";
-            this.nation="";
+            this.address="北京";
+            this.nation="汉族";
             this.grade="一年级";
             this.clazz="一班";
         }

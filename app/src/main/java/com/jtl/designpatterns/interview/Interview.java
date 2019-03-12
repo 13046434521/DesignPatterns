@@ -1,6 +1,5 @@
 package com.jtl.designpatterns.interview;
 
-import android.support.annotation.IntDef;
 import android.support.annotation.StringDef;
 
 import java.lang.annotation.ElementType;
